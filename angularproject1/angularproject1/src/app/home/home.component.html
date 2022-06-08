@@ -1,0 +1,40 @@
+<div class="page">
+    <div class="form">
+        <form class="ngform">
+            <h3>Zakazite termin za besplatan cas iz matematike</h3>
+
+            <div>
+                <input type="text" [(ngModel)]="name" name="name"  placeholder="Unesite ime"  required>
+            </div>
+
+            <div>
+                <input type="text"  [(ngModel)]="surname" placeholder="Unesite prezime" name="surname" required>
+            </div>
+
+            <div>
+                <input type="email"  [(ngModel)]="email" placeholder="Unesite email" name="email" required>
+            </div>
+            <div> 
+                <select name="profesorSelect" placeholder="Izaberite profesora" [(ngModel)]="profesorId" (change)="selection($event)">
+                    <option value="" disabled="true">--izaberite profesora--</option>
+                    <option *ngFor="let profesor of listProfesors" [value]="profesor.id">
+                        {{profesor.name}} {{profesor.surname}}
+                    </option>
+                </select>
+            </div>
+            <div> 
+                <select name="dateTimeSelect" [(ngModel)]="scheduleId">
+                    <option value="" disabled="true">--izaberite termin--</option>
+                    <option *ngFor="let schedules of listSchedules" [value]="schedules.id">
+                        {{schedules.startTime}} {{schedules.endTime}}
+                    </option>
+                </select>
+            </div>
+
+            
+
+`
+            <button class="btn btn-primary" (click)="registration()">Zakazite</button>
+        </form>
+    </div>
+</div>
