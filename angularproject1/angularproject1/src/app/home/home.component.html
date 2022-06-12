@@ -4,18 +4,18 @@
             <h3>Zakazite termin za besplatan cas iz matematike</h3>
 
             <div>
-                <input type="text" [(ngModel)]="name" name="name"  placeholder="Unesite ime"  required>
+                <input type="text" [(ngModel)]="scheduleClass.Name" name="name"  placeholder="Unesite ime"  required>
             </div>
 
             <div>
-                <input type="text"  [(ngModel)]="surname" placeholder="Unesite prezime" name="surname" required>
+                <input type="text"  [(ngModel)]="scheduleClass.Surname" placeholder="Unesite prezime" name="surname" required>
             </div>
 
             <div>
-                <input type="email"  [(ngModel)]="email" placeholder="Unesite email" name="email" required>
+                <input type="email"  [(ngModel)]="scheduleClass.Email" placeholder="Unesite email" name="email" required>
             </div>
             <div> 
-                <select name="profesorSelect" placeholder="Izaberite profesora" [(ngModel)]="profesorId" (change)="selection($event)">
+                <select name="profesorSelect" placeholder="Izaberite profesora" [(ngModel)]="scheduleClass.ProfesorId" (change)="selection($event)">
                     <option value="" disabled="true">--izaberite profesora--</option>
                     <option *ngFor="let profesor of listProfesors" [value]="profesor.id">
                         {{profesor.name}} {{profesor.surname}}
@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div> 
-                <select name="dateTimeSelect" [(ngModel)]="scheduleId">
+                <select name="dateTimeSelect" [(ngModel)]="scheduleClass.ScheduleId">
                     <option value="" disabled="true">--izaberite termin--</option>
                     <option *ngFor="let schedules of listSchedules" [value]="schedules.id">
                         {{schedules.startTime}} {{schedules.endTime}}
@@ -34,7 +34,7 @@
             
 
 `
-            <button class="btn btn-primary" (click)="registration()">Zakazite</button>
+            <button class="btn btn-primary" (click)="schedule()">Zakazite</button>
         </form>
     </div>
 </div>

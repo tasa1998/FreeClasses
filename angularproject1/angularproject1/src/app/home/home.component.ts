@@ -3,6 +3,15 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StudentService } from 'src/student.service';
 
+
+export interface ScheduleClassDto{
+  Name:any;
+  Surname:any;
+  Email: any;
+  ProfesorId:any;
+  ScheduleId: any;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,13 +19,11 @@ import { StudentService } from 'src/student.service';
 })
 export class HomeComponent implements OnInit {
 
-  name: any
-  surname: any
-  email: any
   listProfesors: any = []
   listSchedules:any = []
-  profesorId: any
-  scheduleId: any
+
+  scheduleClass: ScheduleClassDto = {Name: '', Surname: '', Email:'', ProfesorId: 0, ScheduleId: 0};
+
 
 
   constructor(private toastrService: ToastrService, private studentService:StudentService, private router: Router) { }
@@ -29,8 +36,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  registration(){  
-      
+  schedule(){  
+      this.studentService.scheduleClass(this.scheduleClass).subscribe((returnedAction: string) =>{
+        this.toastrService.success('Uspesno ste zakazali termin!');
+      },
+        (err:any) => {
+          this.toastrService.error(err.error.message);
+      });
   }
 
   

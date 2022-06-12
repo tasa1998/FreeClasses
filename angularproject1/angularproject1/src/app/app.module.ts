@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, ToastrModule.forRoot()
+    BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, FormsModule, ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+export interface ScheduleClassDto{
+    Name:any;
+    Surname:any;
+    Email: any;
+    ProfesorId:any;
+    ScheduleId: any;
+}
